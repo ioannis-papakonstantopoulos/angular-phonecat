@@ -14,17 +14,19 @@
     "jquery": "3.3.x"
   },
   "devDependencies": {
-    "angular-mocks": "1.7.x",
+    "@types/angular": "^1.6.56",
+    "@types/angular-animate": "^1.5.10",
+    "@types/angular-cookies": "^1.4.5",
+    "@types/angular-resource": "^1.5.15",
+    "@types/angular-route": "^1.7.0",
+    "@types/angular-sanitize": "^1.7.0",        
     "cpx": "^1.5.0",
     "http-server": "^0.11.1",
-    "jasmine-core": "^3.3.0",
-    "karma": "^3.1.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^1.1.2",
-    "protractor": "^5.4.1"
+    "typescript": "^3.6.3"
   },
   "scripts": {
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
     "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
     "postupdate-deps": "npm run copy-libs",
@@ -37,6 +39,6 @@
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js"
+    "protractor": "protractor e2e-tests/protractor.conf.js"    
   }
 }
