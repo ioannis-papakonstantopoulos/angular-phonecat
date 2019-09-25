@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "es5",
+        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
@@ -20,7 +20,7 @@
         "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "es6",
       "dom"
     ]
 }
