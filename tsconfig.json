@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "es6",
-        "module": "commonjs",
+        "target": "es2015",
+        "module": "umd",
         "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
@@ -19,8 +19,5 @@
     "typeRoots": [
         "node_modules/@types"
     ],
-    "lib": [
-      "es6",
-      "dom"
-    ]
+    "lib" : ["es2015", "dom"]
 }
