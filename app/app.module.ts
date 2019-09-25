@@ -1,10 +1,17 @@
-'use strict';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-// Define the `phonecatApp` module
-angular.module('phonecatApp', [
-  'ngAnimate',
-  'ngRoute',
-  'core',
-  'phoneDetail',
-  'phoneList'
-]);
+import { UpgradeModule } from '@angular/upgrade/static';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    UpgradeModule,
+  ],
+})
+export class AppModule {
+    constructor(private upgrade: UpgradeModule) { }
+    ngDoBootstrap() {
+        this.upgrade.bootstrap(document.documentElement, ['phonecatApp']);
+  }
+}
