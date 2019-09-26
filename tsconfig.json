@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "es2015",
+        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
@@ -21,5 +21,5 @@
     "typeRoots": [
         "node_modules/@types"
     ],
-    "lib" : ["es5", "dom"]
+    "lib" : ["es6", "dom"]
 }
