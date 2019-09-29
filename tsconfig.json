@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
+        "outDir": "dist",
         "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
@@ -14,8 +15,6 @@
     "compileOnSave": true,
     "exclude": [
         "node_modules",
-        // "typings/main",
-        // "typings/main.d.ts",
         "**/*.spec.ts"
     ],
     "typeRoots": [

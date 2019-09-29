@@ -1,6 +1,7 @@
 {
   "name": "angular-phonecat",
   "private": true,
+  "main": "app/main.ts",
   "version": "0.0.0",
   "description": "A tutorial application for AngularJS",
   "repository": "https://github.com/angular/angular-phonecat",
@@ -37,9 +38,12 @@
     "@types/angular-sanitize": "^1.7.0",
     "cpx": "^1.5.0",
     "http-server": "^0.11.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
   },
   "scripts": {
+    "build": "webpack -p",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "postinstall": "npm run copy-libs",
