@@ -7,3 +7,6 @@ tmp
 .idea
 angular-phonecat-snapshots
 app/**/*.map
+app/**/*.js
+package-lock.json
+src/**/dist/**
