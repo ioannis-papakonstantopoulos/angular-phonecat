@@ -1,4 +1,3 @@
-
 // angular.
 //   module('core.phone').
 //   factory('Phone', ['$resource',
@@ -12,7 +11,6 @@
 //       });
 //     }
 //   ]);
-
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -29,16 +27,17 @@ export interface PhoneData {
 
 @Injectable()
 export class Phone {
-  constructor(private http: HttpClient) { console.log("Inside Phone sercice constructor"); }
+  constructor(private http: HttpClient) {
+    console.log('Inside Phone sercice constructor');
+  }
   query(): Observable<PhoneData[]> {
-    console.log("Querying for all phones.");
+    console.log('Querying for all phones.');
     return this.http.get<PhoneData[]>(`phones/phones.json`);
   }
   get(id: string): Observable<PhoneData> {
-    console.log("Querying for phone ID:" + id);
+    console.log('Querying for phone ID:' + id);
     return this.http.get<PhoneData>(`phones/${id}.json`);
   }
 }
 
-angular.module('core.phone')
-  .factory('phone', downgradeInjectable(Phone));
+angular.module('core.phone').factory('phone', downgradeInjectable(Phone));

@@ -22,8 +22,7 @@
 //     controller: PhoneListController
 //   });
 
-
-  // #docregion downgrade-component
+// #docregion downgrade-component
 declare var angular: angular.IAngularStatic;
 import { downgradeComponent } from '@angular/upgrade/static';
 
@@ -36,7 +35,7 @@ import { Phone, PhoneData } from '../core/phone/phone.service';
 // #docregion downgrade-component
 @Component({
   selector: 'phone-list',
-  templateUrl: './phone-list.template.html'
+  templateUrl: './phone-list.template.html',
 })
 export class PhoneListComponent {
   // #enddocregion downgrade-component
@@ -89,9 +88,7 @@ export class PhoneListComponent {
 }
 // #enddocregion initialclass
 
-angular.module('phoneList')
-  .directive(
-    'phoneList',
-    downgradeComponent({component: PhoneListComponent}) as angular.IDirectiveFactory
-  );
+angular
+  .module('phoneList')
+  .directive('phoneList', downgradeComponent({ component: PhoneListComponent }) as angular.IDirectiveFactory);
 // #enddocregion downgrade-component

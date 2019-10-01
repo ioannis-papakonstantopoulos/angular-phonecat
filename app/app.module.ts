@@ -13,30 +13,18 @@ import { routeParamsProvider } from './ajs-upgraded-providers';
 import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
 import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
 
+import { default as phonecatApp } from './app.module.ajs';
+
 @NgModule({
-  imports: [
-    BrowserModule,
-    UpgradeModule,
-    HttpClientModule,
-    FormsModule,
-  ],
-  declarations: [
-    PhoneListComponent,
-    PhoneDetailComponent,
-    CheckmarkPipe,
-  ],
-  entryComponents: [
-    PhoneListComponent,
-    PhoneDetailComponent  
-  ],
-  providers: [
-    Phone,
-    routeParamsProvider
-  ],
+  imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
+  declarations: [PhoneListComponent, PhoneDetailComponent, CheckmarkPipe],
+  entryComponents: [PhoneListComponent, PhoneDetailComponent],
+  providers: [Phone, routeParamsProvider],
 })
 export class AppModule {
-  constructor(private upgrade: UpgradeModule) { }
+  constructor(private upgrade: UpgradeModule) {}
   ngDoBootstrap() {
-    this.upgrade.bootstrap(document.documentElement, ['phonecatApp']);
+    console.log('Bootstrapping phonecatApp...');
+    this.upgrade.bootstrap(document.documentElement, ['phonecatApp'], { strictDi: true });
   }
 }

@@ -1,14 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ScriptExtPlugin = require('script-ext-html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { AngularCompilerPlugin } = require('@ngtools/webpack');
+
 const webpack = require('webpack');
 
+// const { AngularCompilerPlugin } = require('@ngtools/webpack');
+
 module.exports = {
-    mode: 'development',
-    // entry: "./dist/main.js",
     entry: {
         app: "./app/main.ts",
-        // index: "./index.html"
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -17,48 +20,40 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
-        
+    },
+    resolve: {
+        extensions: [".ts", ".js", ".json"]
     },
     module: {
         rules: [
-            {
-                test: /\.ts?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css?$/,
-                loader: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            // {
-            //     test: /\.scss?$/,
-            //     loader: [
-            //         'style-loader',
-            //         'css-loader',
-            //         'sass-loader'
-            //     ]
-            // },
-            {
-                test: /\.(png|jpe?g|gif)$/,
-                loader: 'file-loader'
-            },
-            {
-                test: /\.html$/,
-                loader: 'raw-loader'
-            }
+            {test: /\.ts$/, loaders: ['@ngtools/webpack'] },
+            { test: /\.css$/, loader: 'raw-loader' },
+            { test: /\.html$/, loader: 'raw-loader' }            
         ]
     },
-    resolve: {
-        extensions: [".ts", ".js"]
-    },
+    
     plugins: [
+        new CopyWebpackPlugin([
+            { from: __dirname +'/app/public', to: 'public'}
+        ]),
         new HtmlWebpackPlugin({
-            // template: './index.html'
+            template: __dirname + '/app/index.html',
+            output: __dirname + '/dist',
+            inject: 'head'
         }),
-        new CleanWebpackPlugin()
+        // new ScriptExtPlugin({
+            // defaultAttribute: 'defer'
+        // }),
+        new AngularCompilerPlugin({
+            tsConfigPath: './tsconfig.json',
+            entryModule: './app/app.module#AppModule',
+            sourceMap: true
+        })
+        // new CleanWebpackPlugin(),
+
+        // Copy assets from the public folder
+        // Reference: https://github.com/kevlened/copy-webpack-plugin
+        
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
         //     filename: '[name].bundle.js',

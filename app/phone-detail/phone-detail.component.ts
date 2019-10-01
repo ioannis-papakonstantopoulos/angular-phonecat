@@ -1,4 +1,3 @@
-
 // declare var angular: angular.IAngularStatic;
 // import { Phone, PhoneData } from '../core/phone/phone.service';
 
@@ -44,8 +43,7 @@ export class PhoneDetailComponent {
   mainImageUrl: string;
 
   constructor(routeParams: RouteParams, phone: Phone) {
-    
-    console.log("μέσα στον PhoneDetailComponent:constructor");
+    console.log('μέσα στον PhoneDetailComponent:constructor');
 
     phone.get(routeParams['phoneId']).subscribe(phone => {
       this.phone = phone;
@@ -58,8 +56,6 @@ export class PhoneDetailComponent {
   }
 }
 
-angular.module('phoneDetail')
-  .directive(
-    'phoneDetail',
-    downgradeComponent({component: PhoneDetailComponent}) as angular.IDirectiveFactory
-  );
+angular
+  .module('phoneDetail')
+  .directive('phoneDetail', downgradeComponent({ component: PhoneDetailComponent }) as angular.IDirectiveFactory);
