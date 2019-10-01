@@ -44,8 +44,11 @@ export class PhoneListComponent {
   orderProp: string;
 
   constructor(phone: Phone) {
+
+    console.log("Inside PhoneListComponent constructor.");
+    
     phone.query().subscribe(phones => {
-      this.phones = phones;
+      this.phones = phones;      
     });
     this.orderProp = 'age';
   }

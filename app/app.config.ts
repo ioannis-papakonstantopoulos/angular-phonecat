@@ -1,4 +1,8 @@
-angular.module('phonecatApp').config([
+declare var angular: angular.IAngularStatic;
+
+import phonecatApp from './app.module.ajs';
+
+angular.module(phonecatApp).config([
   '$locationProvider',
   '$routeProvider',
   function config($locationProvider: angular.ILocationProvider, $routeProvider: angular.route.IRouteProvider) {

@@ -26,7 +26,7 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /\.ts$/, loaders: ['@ngtools/webpack'] },
+            { test: /\.ts$/, loaders: ['@ngtools/webpack'] },
             { test: /\.css$/, loader: 'raw-loader' },
             { test: /\.html$/, loader: 'raw-loader' }            
         ]

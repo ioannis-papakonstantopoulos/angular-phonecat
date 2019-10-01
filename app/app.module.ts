@@ -1,19 +1,17 @@
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { UpgradeModule } from '@angular/upgrade/static';
 
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
-import { Phone } from './core/phone/phone.service';
-
-import { FormsModule } from '@angular/forms';
-import { PhoneListComponent } from './phone-list/phone-list.component';
 import { routeParamsProvider } from './ajs-upgraded-providers';
-import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
 import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
+import { Phone } from './core/phone/phone.service';
+import { PhoneDetailComponent } from './phone-detail/phone-detail.component';
+import { PhoneListComponent } from './phone-list/phone-list.component';
 
-import { default as phonecatApp } from './app.module.ajs';
+import phonecatApp from './app.module.ajs';
 
 @NgModule({
   imports: [BrowserModule, UpgradeModule, HttpClientModule, FormsModule],
@@ -24,7 +22,7 @@ import { default as phonecatApp } from './app.module.ajs';
 export class AppModule {
   constructor(private upgrade: UpgradeModule) {}
   ngDoBootstrap() {
-    console.log('Bootstrapping phonecatApp...');
-    this.upgrade.bootstrap(document.documentElement, ['phonecatApp'], { strictDi: true });
+    console.log('Bootstrapping AngularJS phonecatApp...');
+    this.upgrade.bootstrap(document.body, [phonecatApp], { strictDi: true });
   }
 }

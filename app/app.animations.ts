@@ -7,7 +7,9 @@ angular.module('phonecatApp').animation('.phone', function phoneAnimationFactory
   };
 
   function animateIn(element, className, done) {
-    if (className !== 'selected') return;
+    if (className !== 'selected') {
+      return;
+    }
 
     element
       .css({
@@ -24,7 +26,9 @@ angular.module('phonecatApp').animation('.phone', function phoneAnimationFactory
       );
 
     return function animateInEnd(wasCanceled) {
-      if (wasCanceled) element.stop();
+      if (wasCanceled) {
+        element.stop();
+      }
     };
   }
 
