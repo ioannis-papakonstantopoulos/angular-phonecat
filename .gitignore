@@ -11,3 +11,4 @@ app/**/*.map
 app/**/*.js
 package-lock.json
 src/**/dist/**
+package-lock.json
