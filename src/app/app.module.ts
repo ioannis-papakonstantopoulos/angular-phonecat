@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { UpgradeModule } from '@angular/upgrade/static';
 
 @NgModule({
@@ -12,6 +11,10 @@ import { UpgradeModule } from '@angular/upgrade/static';
 export class AppModule {
     constructor(private upgrade: UpgradeModule) { }
     ngDoBootstrap() {
-        this.upgrade.bootstrap(document.documentElement, ['phonecatApp']);
+      // console.log("1. AppModule:ngDoBootstrap() finished");
+      
+      this.upgrade.bootstrap(document.body, ['phonecatApp'], { strictDi: true });
+      
+      // console.log("2. AppModule:ngDoBootstrap() finished");
   }
 }

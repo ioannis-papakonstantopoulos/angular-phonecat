@@ -1,3 +1,5 @@
+// import './phone-list.template.html';
+
 class PhoneListController {
   phones: any[];
   orderProp: string;
@@ -14,6 +16,7 @@ class PhoneListController {
 angular.
   module('phoneList').
   component('phoneList', {
-    templateUrl: 'phone-list/phone-list.template.html',
+    // templateUrl: './phone-list.template.html',
+    template: require('html-loader!./phone-list.template.html'),
     controller: PhoneListController
   });

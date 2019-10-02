@@ -2,7 +2,7 @@
 angular.
   module('core.phone').
   factory('Phone', ['$resource',
-    function($resource: angular.resource.IResourceService) {
+    function($resource) {
       return $resource('phones/:phoneId.json', {}, {
         query: {
           method: 'GET',

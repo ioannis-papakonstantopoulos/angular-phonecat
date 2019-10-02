@@ -27,12 +27,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/img",
+              "src/phones"
             ],
             "styles": [
-              "src/app/app.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/angular/angular.js",
+              "node_modules/angular-resource/angular-resource.js",
+              "node_modules/angular-route/angular-route.js"
+            ]
           },
           "configurations": {
             "production": {

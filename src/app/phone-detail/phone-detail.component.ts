@@ -3,7 +3,7 @@ class PhoneDetailController {
   mainImageUrl: string;
 
   static $inject = ['$routeParams', 'Phone'];
-  constructor($routeParams: angular.route.IRouteParamsService, Phone: any) {
+  constructor($routeParams, Phone: any) {
     let phoneId = $routeParams['phoneId'];
     this.phone = Phone.get({phoneId}, (phone: any) => {
       this.setImage(phone.images[0]);
@@ -18,6 +18,7 @@ class PhoneDetailController {
 angular.
   module('phoneDetail').
   component('phoneDetail', {
-    templateUrl: 'phone-detail/phone-detail.template.html',
+    // templateUrl: 'phone-detail/phone-detail.template.html',
+    template: require('html-loader!./phone-detail.template.html'),
     controller: PhoneDetailController
   });
