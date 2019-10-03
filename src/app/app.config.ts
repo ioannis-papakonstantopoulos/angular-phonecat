@@ -1,5 +1,3 @@
-import './app.module.ajs';
-
 angular.
   module('phonecatApp').
   config(['$locationProvider', '$routeProvider',
