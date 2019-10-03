@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { Phone } from './core/phone';
 import { FormsModule } from '@angular/forms';
 import { PhoneListComponent } from './phone-list';
+import { PhoneDetailComponent } from './phone-detail';
+import { routeParamsProvider } from './ajs-upgraded-providers';
+import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
 
 
 @NgModule({
@@ -15,13 +18,17 @@ import { PhoneListComponent } from './phone-list';
     FormsModule
   ],
   declarations: [
-    PhoneListComponent
+    PhoneListComponent,
+    PhoneDetailComponent,
+    CheckmarkPipe
   ],
   entryComponents: [
-    PhoneListComponent
+    PhoneListComponent,
+    PhoneDetailComponent
   ],
   providers: [
     Phone,
+    routeParamsProvider
   ]
 })
 export class AppModule {
