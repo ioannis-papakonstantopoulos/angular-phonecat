@@ -1,5 +1,3 @@
-// import './phone-list.template.html';
-
 class PhoneListController {
   phones: any[];
   orderProp: string;
@@ -7,7 +5,9 @@ class PhoneListController {
 
   static $inject = ['Phone'];
   constructor(Phone: any) {
-    this.phones = Phone.query();
+    Phone.query().then(phones => {
+      this.phones = phones;
+    });
     this.orderProp = 'age';
   }
 
@@ -16,7 +16,6 @@ class PhoneListController {
 angular.
   module('phoneList').
   component('phoneList', {
-    // templateUrl: './phone-list.template.html',
     template: require('html-loader!./phone-list.template.html'),
     controller: PhoneListController
   });
