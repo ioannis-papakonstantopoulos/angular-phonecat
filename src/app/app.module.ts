@@ -8,6 +8,8 @@ import { PhoneListComponent } from './phone-list';
 import { PhoneDetailComponent } from './phone-detail';
 import { routeParamsProvider } from './ajs-upgraded-providers';
 import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 
 @NgModule({
@@ -15,9 +17,11 @@ import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
     BrowserModule,
     UpgradeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   declarations: [
+    AppComponent,
     PhoneListComponent,
     PhoneDetailComponent,
     CheckmarkPipe
@@ -29,11 +33,8 @@ import { CheckmarkPipe } from './core/checkmark/checkmark.pipe';
   providers: [
     Phone,
     routeParamsProvider
-  ]
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
-    constructor(private upgrade: UpgradeModule) { }
-    ngDoBootstrap() {
-      this.upgrade.bootstrap(document.body, ['phonecatApp'], { strictDi: true });
-  }
 }

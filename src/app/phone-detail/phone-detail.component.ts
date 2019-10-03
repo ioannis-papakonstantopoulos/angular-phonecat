@@ -2,6 +2,7 @@ import { Phone, PhoneData } from "../core/phone";
 import { Component } from '@angular/core';
 import { downgradeComponent } from '@angular/upgrade/static';
 import { RouteParams } from '../ajs-upgraded-providers';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'phone-detail',
@@ -11,9 +12,9 @@ export class PhoneDetailComponent {
   phone: PhoneData;
   mainImageUrl: string;
 
-  constructor(routeParams: RouteParams, phone: Phone) {
-    let phoneId = routeParams['phoneId'];
-    phone.get(phoneId).subscribe(phone => {
+  constructor(activatedRoute: ActivatedRoute, phone: Phone) {
+    let phoneId = activatedRoute.snapshot.paramMap.get('phoneId');
+    phone.get(phoneId).subscribe((phone: PhoneData) => {
       this.phone = phone;
       this.setImage(phone.images[0]);
     });
