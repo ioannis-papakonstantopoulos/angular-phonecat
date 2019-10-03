@@ -3,17 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { HttpClientModule } from '@angular/common/http';
 import { Phone } from './core/phone';
+import { FormsModule } from '@angular/forms';
+import { PhoneListComponent } from './phone-list';
+
 
 @NgModule({
   imports: [
     BrowserModule,
     UpgradeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+  ],
+  declarations: [
+    PhoneListComponent
+  ],
+  entryComponents: [
+    PhoneListComponent
   ],
   providers: [
     Phone,
-    // { provide: 'Phone', useClass: Phone }
-
   ]
 })
 export class AppModule {

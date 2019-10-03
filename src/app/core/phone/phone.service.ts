@@ -25,12 +25,6 @@ export class Phone {
     return this.http.get<PhoneData>(`phones/${id}.json`);
   }
 
-  // query(): Promise<PhoneData[]> {
-  //   return this.http.get<PhoneData[]>(`phones/phones.json`).toPromise();
-  // }
-  // get(id: string): Promise<PhoneData> {
-  //   return this.http.get<PhoneData>(`phones/${id}.json`).toPromise();
-  // }
 }
 
 angular.module('core.phone')
